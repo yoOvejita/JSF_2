@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Usuario</td>
+                    <td>
+                        <h:inputText value="#{emplea.empleado.nombre}" required="true" requiredMessage="Es obligatorio" id="nombre">
+                            <f:validateLength minimum="3" maximum="12"></f:validateLength>
+                        </h:inputText>
+                    </td>
+                    <td>
+                        <h:message for="nombre"></h:message>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <h:inputSecret value="#{emplea.empleado.password}" required="true" requiredMessage="Ingrese un password" id="pass" validator="#{emplea.validadorPass}">
+                            <!--<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[@#$%]).{6,20}"></f:validateRegex>-->
+                        </h:inputSecret>
+                    </td>
+                    <td>
+                        <h:message for="pass"></h:message>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Estatura</td>
+                    <td>
+                        <h:inputText value="#{emplea.empleado.estatura}" required="true" requiredMessage="Ponga su estatura" id="est">
+                            <f:validateLongRange minimum="50" maximum="220"></f:validateLongRange>
+                        </h:inputText>
+                    </td>
+                    <td>
+                        <h:message for="est"></h:message>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <h:commandButton value="REGISTRAR" action="#{emplea.registrar()}"></h:commandButton>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
